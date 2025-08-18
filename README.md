@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 🧪 API Testing Java Project
 
 A comprehensive learning platform for API testing using Java, Spring Boot, and RestAssured. This project provides real-world examples, extensive documentation, and step-by-step learning modules to master API testing from basics to advanced concepts.
@@ -491,7 +490,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 [![Maven](https://img.shields.io/badge/Maven-3.6+-red.svg)](https://maven.apache.org/)
 
 </div>
-=======
-# api-testing-java
-Testing API with Rest Assured framework and Java as language in Spring boot 
->>>>>>> fa028d674f667ad864d8e6355cd212525a49b4c7
