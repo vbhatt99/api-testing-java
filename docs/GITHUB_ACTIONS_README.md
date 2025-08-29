@@ -20,7 +20,19 @@ This repository uses GitHub Actions to automatically run API tests using Maven a
 
 ## Test Reports
 
-After each run, Allure results are available as downloadable workflow artifacts in the GitHub Actions run summary.
+After each run:
+
+- **Artifacts:** Allure results (`allure-results`) and the generated HTML report (`allure-report`) are available as downloadable workflow artifacts in the GitHub Actions run summary.
+- **Online Viewing:** The workflow automatically deploys the latest Allure HTML report to GitHub Pages (`gh-pages` branch). Only the most recent report is available online, and it is overwritten with each run.
+
+### How to View the Latest Allure Report Online
+
+1. Go to your repository’s **Settings > Pages**.
+2. Set the source branch to `gh-pages` and folder to `/` (root).
+3. Save the settings. GitHub will provide a public URL (e.g., `https://<your-username>.github.io/api-testing-java/`).
+4. Open the URL in your browser to view the latest Allure report.
+
+> **Note:** The report is public if your repository is public. Review your test results for sensitive information before publishing.
 
 - To change the schedule, edit the `cron` value in `.github/workflows/api-tests.yml`.
 - To add more branches or steps, update the workflow file as needed.
