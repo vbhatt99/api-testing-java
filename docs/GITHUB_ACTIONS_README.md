@@ -14,14 +14,18 @@ This repository uses GitHub Actions to automatically run API tests using Maven a
 1. **Checkout code:** Uses the latest code from the repository.
 2. **Set up JDK 17:** Ensures the correct Java version is used for testing.
 3. **Cache Maven packages:** Speeds up builds by caching dependencies.
-4. **Build and test:** Runs `mvn clean test` to execute all tests.
 
-## Customization
+4. **Build and test:** Runs `mvn clean test` to execute all tests.
+5. **Upload Allure Results:** After tests, the workflow uploads the `allure-results` directory as an artifact for download and review.
+
+## Test Reports
+
+After each run, Allure results are available as downloadable workflow artifacts in the GitHub Actions run summary.
 
 - To change the schedule, edit the `cron` value in `.github/workflows/api-tests.yml`.
 - To add more branches or steps, update the workflow file as needed.
 
-## Example Workflow File
+## Example Workflow File (with Allure Results Upload)
 
 ```yaml
 name: Run API Tests
