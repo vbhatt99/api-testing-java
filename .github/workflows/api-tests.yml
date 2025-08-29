@@ -8,6 +8,10 @@ on:
   schedule:
     - cron: '0 0 * * 5'
 
+permissions:
+  contents: write
+  pages: write
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -49,3 +53,10 @@ jobs:
         with:
           name: allure-html-report
           path: allure-report/
+      - name: Deploy Allure HTML Report to GitHub Pages
+        if: github.event_name == 'schedule' || github.event_name == 'push'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: allure-report
+          force_orphan: true
