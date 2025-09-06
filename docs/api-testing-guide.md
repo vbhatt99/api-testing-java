@@ -493,7 +493,7 @@ public class UserTestDataBuilder {
         user.put("email", "test" + System.currentTimeMillis() + "@example.com");
         user.put("firstName", "Test");
         user.put("lastName", "User");
-        user.put("password", "password123");
+        user.put("password", "[hashed password - use passwordEncoder.encode()]");
         return user;
     }
     

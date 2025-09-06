@@ -70,8 +70,8 @@ spring:
   datasource:
     url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     driver-class-name: org.h2.Driver
-    username: sa
-    password: password
+    username: ${DB_USERNAME:sa}
+    password: ${DB_PASSWORD:changeme123}
   
   jpa:
     hibernate:
@@ -110,7 +110,7 @@ Create `src/test/resources/test-data/users.json`:
     "email": "test@example.com",
     "firstName": "Test",
     "lastName": "User",
-    "password": "password123",
+    "password": "[hashed password - use passwordEncoder.encode()]",
     "status": "ACTIVE"
   },
   "invalidUser": {
@@ -306,7 +306,7 @@ public class TestDataInitializer {
             testUser.setEmail("test@example.com");
             testUser.setFirstName("Test");
             testUser.setLastName("User");
-            testUser.setPassword("password123");
+            testUser.setPassword(passwordEncoder.encode("password123"));
             testUser.setStatus(User.UserStatus.ACTIVE);
             userRepository.save(testUser);
         }

@@ -38,6 +38,10 @@ Welcome to the comprehensive API testing project built with Java, Spring Boot, a
 - [Database Console](./database-console.md) - H2 database management
 - [Logging Configuration](./logging-config.md) - Application logging setup
 
+### 🔒 Security
+- [Security Configuration](../SECURITY.md) - Comprehensive security documentation
+- [Environment Variables](../env.example) - Secure configuration template
+
 ### 🚀 Deployment & Operations
 - [Local Development](./local-development.md) - Development environment setup
 - [Production Deployment](./production-deployment.md) - Production deployment guide
@@ -107,7 +111,7 @@ api-testing-java/
 3. **Access the APIs**
    - API Documentation: http://localhost:8080/api/swagger-ui.html
    - Health Check: http://localhost:8080/api/health
-   - H2 Database: http://localhost:8080/api/h2-console
+   - H2 Database: http://localhost:8080/api/h2-console (disabled by default)
 
 4. **Run Tests**
    ```bash

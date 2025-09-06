@@ -88,7 +88,7 @@ public class User {
     private String email;          // Unique email
     private String firstName;      // First name
     private String lastName;       // Last name
-    private String password;       // Password (hashed in production)
+    private String password;       // Password (hashed with BCrypt)
     private UserStatus status;     // ACTIVE, INACTIVE, SUSPENDED
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -336,8 +336,8 @@ server:
 spring:
   datasource:
     url: jdbc:h2:mem:testdb
-    username: sa
-    password: password
+    username: ${DB_USERNAME:sa}
+    password: ${DB_PASSWORD:changeme123}
   
   jpa:
     hibernate:
@@ -375,6 +375,9 @@ logging:
 - **XSS Prevention**: Input sanitization
 
 ### Authentication & Authorization
+- **Password Security**: BCrypt password hashing implemented
+- **Security Headers**: Comprehensive security headers configured
+- **Environment Variables**: Secure configuration management
 - **Ready for integration**: Prepared for JWT/OAuth
 - **Role-based access**: Extensible authorization
 - **Secure headers**: Security headers configuration

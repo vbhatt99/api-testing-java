@@ -335,11 +335,12 @@ mvn test -Dlogging.level.com.apitester=DEBUG
 
 ### Database
 ```bash
-# Access H2 console
+# Access H2 console (development only)
+# Set H2_CONSOLE_ENABLED=true in environment variables
 # Open: http://localhost:8080/api/h2-console
 # JDBC URL: jdbc:h2:mem:testdb
-# Username: sa
-# Password: password
+# Username: sa (or DB_USERNAME value)
+# Password: [your configured DB_PASSWORD]
 ```
 
 ## 🎯 What You'll Build
@@ -427,11 +428,20 @@ We welcome contributions! Here's how to get started:
 
 ## 🔒 Security
 
-### Current Features
-- ✅ Input validation with Bean Validation
-- ✅ SQL injection prevention
-- ✅ XSS prevention
-- ✅ Secure headers configuration
+### Implemented Security Features
+- ✅ **Password Hashing**: BCrypt password encryption
+- ✅ **Input Validation**: Bean Validation on all inputs
+- ✅ **Security Headers**: Comprehensive security headers
+- ✅ **Environment Variables**: Secure configuration management
+- ✅ **SQL Injection Prevention**: JPA/Hibernate protection
+- ✅ **XSS Prevention**: Content-Type and XSS protection headers
+- ✅ **H2 Console Control**: Environment-based console access
+- ✅ **Logging Security**: Configurable log levels
+
+### Security Configuration
+- 🔧 **Environment Variables**: See `env.example` for configuration
+- 🔧 **Security Documentation**: See `SECURITY.md` for detailed security info
+- 🔧 **Password Protection**: Passwords excluded from API responses
 
 ### Ready for Integration
 - 🔄 JWT/OAuth authentication
@@ -453,9 +463,32 @@ We welcome contributions! Here's how to get started:
 - 💬 **Share your experience** in discussions
 - 🐛 **Report issues** for bugs or improvements
 
-## 📄 License
+## ⚠️ Important Disclaimers
+
+### User Responsibility
+**By using, forking, or modifying this project, you acknowledge and agree that:**
+
+- **You are solely responsible** for the security, configuration, and operation of your instance
+- **The original creator is not liable** for any security breaches, data loss, or damages
+- **You must implement proper security measures** before using in any production environment
+- **You are responsible for** keeping dependencies updated and following security best practices
+- **This is educational software** - use at your own risk
+
+### Security Warning
+- This project contains **sample data and default configurations** for learning purposes
+- **DO NOT use default passwords or configurations** in production
+- **Always change default credentials** and implement proper authentication
+- **Review all security settings** before deployment
+- **This project is not production-ready** without additional security hardening
+
+### No Warranty
+This software is provided "as is" without warranty of any kind. The original creator disclaims all warranties, express or implied, including but not limited to the implied warranties of merchantability and fitness for a particular purpose.
+
+## 📄 License & Legal
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+**Important**: Please read the [DISCLAIMER.md](DISCLAIMER.md) file for important legal disclaimers and user responsibility information.
 
 ## 🙏 Acknowledgments
 

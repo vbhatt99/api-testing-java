@@ -2,6 +2,14 @@
 
 Get up and running with the API Testing Java project in 5 minutes! This guide will help you set up the project, run the application, and start testing APIs immediately.
 
+## ⚠️ Important Notice
+
+**This is educational software for learning API testing. By using this project, you acknowledge that:**
+- You are solely responsible for the security and operation of your deployment
+- The original creator is not liable for any security issues or damages
+- This software is provided "as is" without warranty
+- Default configurations are for learning purposes only
+
 ## ⚡ 5-Minute Setup
 
 ### Prerequisites Check
@@ -50,9 +58,11 @@ Open your browser and visit:
    - Interactive API documentation with all endpoints
 
 3. **Database Console**: http://localhost:8080/api/h2-console
+   - **Note**: H2 console is disabled by default for security
+   - To enable: Set `H2_CONSOLE_ENABLED=true` in environment variables
    - JDBC URL: `jdbc:h2:mem:testdb`
-   - Username: `sa`
-   - Password: `password`
+   - Username: `sa` (or your configured `DB_USERNAME`)
+   - Password: [your configured `DB_PASSWORD`]
 
 ### Step 4: Test Your First API (1 minute)
 
@@ -157,11 +167,12 @@ mvn test -Dlogging.level.com.apitester=DEBUG
 
 ### Database
 ```bash
-# Access H2 console
+# Access H2 console (development only)
+# Set H2_CONSOLE_ENABLED=true in environment variables
 # Open: http://localhost:8080/api/h2-console
 # JDBC URL: jdbc:h2:mem:testdb
-# Username: sa
-# Password: password
+# Username: sa (or DB_USERNAME value)
+# Password: [your configured DB_PASSWORD]
 ```
 
 ## 📊 Available Endpoints
