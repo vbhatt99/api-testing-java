@@ -15,8 +15,31 @@ This repository uses GitHub Actions to automatically run API tests using Maven a
 2. **Set up JDK 17:** Ensures the correct Java version is used for testing.
 3. **Cache Maven packages:** Speeds up builds by caching dependencies.
 
-4. **Build and test:** Runs `mvn clean test` to execute all tests.
+4. **Build and test:** Runs `mvn clean test` with secure environment variables to execute all tests.
 5. **Upload Allure Results:** After tests, the workflow uploads the `allure-results` directory as an artifact for download and review.
+
+## Environment Variables
+
+The workflow now includes secure environment variables for testing:
+
+```yaml
+env:
+  # Database Configuration
+  DB_USERNAME: sa
+  DB_PASSWORD: ci_test_password_123
+  # H2 Console Configuration (disabled for CI)
+  H2_CONSOLE_ENABLED: false
+  # Logging Configuration
+  LOG_LEVEL: INFO
+  SPRING_WEB_LOG_LEVEL: WARN
+  HIBERNATE_SQL_LOG_LEVEL: WARN
+  HIBERNATE_BINDER_LOG_LEVEL: WARN
+  # Management Endpoints Configuration
+  MANAGEMENT_ENDPOINTS: health
+  HEALTH_SHOW_DETAILS: when-authorized
+```
+
+These variables ensure secure configuration and proper test execution in the CI environment.
 
 ## Test Reports
 

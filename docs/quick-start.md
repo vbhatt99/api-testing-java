@@ -21,6 +21,44 @@ Before starting, ensure you have:
 - ✅ **Git** installed
 - ✅ **IDE** (IntelliJ IDEA, Eclipse, VS Code OR CURSOR)
 
+### Environment Setup (Required for Security)
+
+**⚠️ IMPORTANT**: This project now requires environment variables for secure configuration.
+
+1. **Copy the environment template:**
+   ```bash
+   cp env.example .env
+   ```
+
+2. **Update the `.env` file with your values:**
+   ```bash
+   # Database Configuration
+   DB_USERNAME=sa
+   DB_PASSWORD=your_secure_password_here
+   
+   # H2 Console Configuration (set to true only for development)
+   H2_CONSOLE_ENABLED=false
+   
+   # Logging Configuration
+   LOG_LEVEL=INFO
+   SPRING_WEB_LOG_LEVEL=WARN
+   HIBERNATE_SQL_LOG_LEVEL=WARN
+   HIBERNATE_BINDER_LOG_LEVEL=WARN
+   
+   # Management Endpoints Configuration
+   MANAGEMENT_ENDPOINTS=health
+   HEALTH_SHOW_DETAILS=when-authorized
+   ```
+
+3. **Load environment variables:**
+   ```bash
+   # On Linux/Mac
+   export $(cat .env | xargs)
+   
+   # On Windows (PowerShell)
+   Get-Content .env | ForEach-Object { if($_ -match "^([^#][^=]+)=(.*)$") { [Environment]::SetEnvironmentVariable($matches[1], $matches[2]) } }
+   ```
+
 ### Step 1: Clone and Setup (1 minute)
 
 ```bash
@@ -28,16 +66,20 @@ Before starting, ensure you have:
 git clone <repository-url>
 cd api-testing-java
 
-# Build the project
+# Build the project (with environment variables)
 mvn clean install
 ```
+
+**Note**: Make sure you've set up the environment variables (see Environment Setup above) before building.
 
 ### Step 2: Run the Application (1 minute)
 
 ```bash
-# Start the Spring Boot application
+# Start the Spring Boot application (with environment variables)
 mvn spring-boot:run
 ```
+
+**Note**: The application will use the environment variables you configured for secure database access and logging.
 
 You should see output like:
 ```

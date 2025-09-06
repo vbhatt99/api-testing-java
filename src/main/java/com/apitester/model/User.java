@@ -7,7 +7,6 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.time.LocalDateTime;
 
@@ -45,7 +44,6 @@ public class User {
     private String lastName;
     
     @Size(min = 6, message = "Password must be at least 6 characters")
-    @JsonIgnore
     private String password;
     
     @Enumerated(EnumType.STRING)

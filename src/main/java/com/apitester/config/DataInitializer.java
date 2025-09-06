@@ -7,7 +7,6 @@ import com.apitester.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -23,7 +22,6 @@ public class DataInitializer implements CommandLineRunner {
     
     private final UserRepository userRepository;
     private final ProductRepository productRepository;
-    private final PasswordEncoder passwordEncoder;
     
     @Override
     public void run(String... args) throws Exception {
@@ -47,7 +45,7 @@ public class DataInitializer implements CommandLineRunner {
             user1.setEmail("john.doe@example.com");
             user1.setFirstName("John");
             user1.setLastName("Doe");
-            user1.setPassword(passwordEncoder.encode("password123"));
+            user1.setPassword("password123");
             user1.setStatus(User.UserStatus.ACTIVE);
             userRepository.save(user1);
             
@@ -56,7 +54,7 @@ public class DataInitializer implements CommandLineRunner {
             user2.setEmail("jane.smith@example.com");
             user2.setFirstName("Jane");
             user2.setLastName("Smith");
-            user2.setPassword(passwordEncoder.encode("password123"));
+            user2.setPassword("password123");
             user2.setStatus(User.UserStatus.ACTIVE);
             userRepository.save(user2);
             
@@ -65,7 +63,7 @@ public class DataInitializer implements CommandLineRunner {
             user3.setEmail("bob.wilson@example.com");
             user3.setFirstName("Bob");
             user3.setLastName("Wilson");
-            user3.setPassword(passwordEncoder.encode("password123"));
+            user3.setPassword("password123");
             user3.setStatus(User.UserStatus.INACTIVE);
             userRepository.save(user3);
             
@@ -74,7 +72,7 @@ public class DataInitializer implements CommandLineRunner {
             user4.setEmail("alice.brown@example.com");
             user4.setFirstName("Alice");
             user4.setLastName("Brown");
-            user4.setPassword(passwordEncoder.encode("password123"));
+            user4.setPassword("password123");
             user4.setStatus(User.UserStatus.ACTIVE);
             userRepository.save(user4);
             
@@ -83,7 +81,7 @@ public class DataInitializer implements CommandLineRunner {
             user5.setEmail("charlie.davis@example.com");
             user5.setFirstName("Charlie");
             user5.setLastName("Davis");
-            user5.setPassword(passwordEncoder.encode("password123"));
+            user5.setPassword("password123");
             user5.setStatus(User.UserStatus.SUSPENDED);
             userRepository.save(user5);
             

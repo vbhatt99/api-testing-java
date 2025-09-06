@@ -455,9 +455,26 @@ class UserApiPerformanceTest extends RestAssuredConfig {
 
 ## 🏃‍♂️ Running Tests
 
+### Environment Setup for Tests
+**⚠️ IMPORTANT**: Tests now require environment variables for secure configuration.
+
+```bash
+# Set up environment variables for testing
+export DB_USERNAME=sa
+export DB_PASSWORD=test_password_123
+export H2_CONSOLE_ENABLED=false
+export LOG_LEVEL=INFO
+export SPRING_WEB_LOG_LEVEL=WARN
+export HIBERNATE_SQL_LOG_LEVEL=WARN
+export HIBERNATE_BINDER_LOG_LEVEL=WARN
+export MANAGEMENT_ENDPOINTS=health
+export HEALTH_SHOW_DETAILS=when-authorized
+```
+
 ### 1. Run All Tests
 
 ```bash
+# Run all tests (with environment variables)
 mvn test
 ```
 

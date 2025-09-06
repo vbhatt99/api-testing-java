@@ -6,6 +6,25 @@ A comprehensive learning platform for API testing using Java, Spring Boot, and R
 
 Get up and running in **5 minutes**:
 
+### 1. Environment Setup (Required)
+**⚠️ IMPORTANT**: This project requires environment variables for secure configuration.
+
+```bash
+# Copy the environment template
+cp env.example .env
+
+# Update the .env file with your values
+# DB_USERNAME=sa
+# DB_PASSWORD=your_secure_password_here
+# H2_CONSOLE_ENABLED=false
+# LOG_LEVEL=INFO
+# ... (see env.example for all variables)
+
+# Load environment variables
+export $(cat .env | xargs)  # Linux/Mac
+```
+
+### 2. Clone and Setup
 ```bash
 # Clone and setup
 git clone <repository-url>
@@ -18,7 +37,7 @@ mvn spring-boot:run
 # Access the APIs
 # API Documentation: http://localhost:8080/api/swagger-ui.html
 # Health Check: http://localhost:8080/api/health
-# H2 Database: http://localhost:8080/api/h2-console
+# H2 Database: http://localhost:8080/api/h2-console (disabled by default)
 
 # Run tests
 mvn test

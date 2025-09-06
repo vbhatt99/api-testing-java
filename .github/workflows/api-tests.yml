@@ -31,6 +31,20 @@ jobs:
             ${{ runner.os }}-m2-
       - name: Build and test
         run: mvn clean test
+        env:
+          # Database Configuration
+          DB_USERNAME: sa
+          DB_PASSWORD: ci_test_password_123
+          # H2 Console Configuration (disabled for CI)
+          H2_CONSOLE_ENABLED: false
+          # Logging Configuration
+          LOG_LEVEL: INFO
+          SPRING_WEB_LOG_LEVEL: WARN
+          HIBERNATE_SQL_LOG_LEVEL: WARN
+          HIBERNATE_BINDER_LOG_LEVEL: WARN
+          # Management Endpoints Configuration
+          MANAGEMENT_ENDPOINTS: health
+          HEALTH_SHOW_DETAILS: when-authorized
       - name: Upload Allure Results
         if: always()
         uses: actions/upload-artifact@v4
