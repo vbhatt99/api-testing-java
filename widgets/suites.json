@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"7cfb845805dd242a4543f721b5e395fe","name":"com.apitester.api.UserApiTest","statistic":{"failed":0,"broken":0,"skipped":0,"passed":18,"unknown":0,"total":18}},{"uid":"98d59ac5ae930cae287ac8c04b6394b2","name":"com.apitester.ApiTestingApplicationTests","statistic":{"failed":0,"broken":0,"skipped":0,"passed":1,"unknown":0,"total":1}}]}
