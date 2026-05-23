@@ -2,7 +2,6 @@ package com.apitester.api;
 
 import com.apitester.model.User;
 import io.qameta.allure.*;
-import io.qameta.allure.junit5.AllureJunit5;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -12,8 +11,6 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.time.LocalDateTime;
-import java.util.List;
-
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
